@@ -1,15 +1,12 @@
-resource "aws_dynamodb_table" "registered_emails" {
-  name         = "RegisteredEmails"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "Email"
-
-  attribute {
-    name = "Email"
-    type = "S"
-  }
-
+module "registered_emails" {
+  source        = "../../modules/dynamodb"
+  table_name    = "RegisteredEmails"
+  environment   = "staging"
+  hash_key      = "Email"
+  hash_key_type = "S"
+  billing_mode  = "PAY_PER_REQUEST"
   tags = {
-    Project     = "HN Ruby Digest"
     Environment = "staging"
+    Project     = "HN Ruby Digest"
   }
 }
