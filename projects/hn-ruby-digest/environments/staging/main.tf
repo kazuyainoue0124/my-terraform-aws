@@ -10,3 +10,13 @@ module "registered_emails" {
     Project     = "HN Ruby Digest"
   }
 }
+
+module "lambda_staging" {
+  source               = "../../modules/lambda"
+  environment          = "staging"
+  function_name_suffix = "hn_ruby_digest_staging"
+  source_file          = "../../applications/lambda_function.rb"
+  env_variables = {
+    ENV = "staging"
+  }
+}
