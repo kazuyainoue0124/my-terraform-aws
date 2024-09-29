@@ -1,3 +1,3 @@
 def lambda_handler(event:, context:)
-  "Hello, World!"
+  "Welcome to HN Ruby Digest!"
 end
